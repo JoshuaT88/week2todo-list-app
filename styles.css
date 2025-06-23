@@ -146,17 +146,23 @@ body {
     
 }
 
-#todoListItems li::before {
-    content: "";
-  position: absolute;
-  left: 0;
-  top: .2rem;
-  width: 1rem;
-  height: 1rem;
-  border: 2px solid red;
-  border-radius: 50%;
+
+
+#todoListItems li button {
+  margin-left: 1rem;
   background: transparent;
+  border: none;
+  color: red;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
+
+#todoListItems li button:hover {
+  transform: scale(1.2);
+  color: darkred;
+}
+
 
 .completed-list {
     display: flex;
