@@ -211,12 +211,18 @@ body {
     
 }
 
-#completedListItems li::before {
-    content: "🟢";
-  position: absolute;
-  left: 0;
-  top: .1rem;
-  width: 1rem;
-  height: 1rem;
- 
+#completedListItems li button {
+  margin-left: 1rem;
+  background: transparent;
+  border: none;
+  color: red;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
+
+#completedListItems li button:hover {
+  transform: scale(1.2);
+  color: darkred;
+}
+
