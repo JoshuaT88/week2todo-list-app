@@ -8,7 +8,7 @@ const addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", function addTask () {
     
 
-    //add task to what to do section
+    //create task
 
     if (todoInput.value.trim() === "")return;
 
@@ -25,42 +25,28 @@ addBtn.addEventListener("click", function addTask () {
     
 
 
-    //trash can button
-    const deleteButton = document.createElement("button");
-    const deleteListItem = document.createTextNode("🗑️");
-
-    listItem.appendChild(deleteButton);
-
-    deleteButton.appendChild(deleteListItem);
-    deleteButton.addEventListener("click", function deleteBtn() {
-        listItem.remove();
-    });
+    //Delete Button
+   const deleteButton = document.createElement("button");
+  deleteButton.textContent = "🗑️";
+  deleteButton.addEventListener("click", () => listItem.remove());
+  listItem.appendChild(deleteButton);
 
 
     //complete button
 
     const completeButton = document.createElement("button");
-    completeButton.textContent = "🔴";
-    
+  completeButton.textContent = "🔴";
+  listItem.appendChild(completeButton);
 
-    const completedListItem = document.getElementById("completedListItems");
-    listItem.appendChild(completeButton);
-
-    completeButton.addEventListener("click", function completeBtn() {
-        listItem.classList.add("completed")
-   
-
-    
-    
+  completeButton.addEventListener("click", () => {
+    listItem.classList.add("completed");
     completeButton.textContent = "🟢";
-
-    completedListItem.appendChild(listItem);
-    
-    
-completeButton.disabled = true;
+    completeButton.disabled = true;
     completeButton.style.cursor = "default";
-   
- });
+
+    const completedList = document.getElementById("completedListItems");
+    completedList.appendChild(listItem);
+  });
 
  
 
