@@ -9,6 +9,9 @@ addBtn.addEventListener("click", function addTask () {
     
 
     //add task to what to do section
+
+    if (todoInput.value.trim() === "")return;
+
     const listItem = document.createElement("li");
     const newListItem = document.createTextNode(todoInput.value);
     
@@ -18,6 +21,8 @@ addBtn.addEventListener("click", function addTask () {
     
     const currentLi = document.getElementById("todoListItems");
     currentLi.appendChild(listItem);
+
+    
 
 
     //trash can button
@@ -32,7 +37,7 @@ addBtn.addEventListener("click", function addTask () {
     });
 
 
-    //add red button to click and add to Completed section
+    //complete button
 
     const completeButton = document.createElement("button");
     completeButton.textContent = "🔴";
@@ -45,14 +50,20 @@ addBtn.addEventListener("click", function addTask () {
         listItem.classList.add("completed")
    
 
-    //move completed item to "completed: " section
+    
     
     completeButton.textContent = "🟢";
 
     completedListItem.appendChild(listItem);
     
-
+    
+completeButton.disabled = true;
+    completeButton.style.cursor = "default";
    
  });
+
+ 
+
+ 
 });
 
